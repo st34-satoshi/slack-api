@@ -1,13 +1,17 @@
 import flask
 from flask import request, Response
 import os
+import json
 
 app = flask.Flask(__name__)
 
 
 @app.route('/', methods=["POST"])
 def index():
-    return Response("hoge", mimetype='text/plane')
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+    token = str(data['token'])
+    return Response(token, mimetype='text/plane')
 
 
 @app.route('/get')
