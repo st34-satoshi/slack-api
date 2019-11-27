@@ -10,7 +10,7 @@ app = flask.Flask(__name__)
 def index():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    token = str(data['token'])
+    token = str(data['challenge'])
     return Response(token, mimetype='text/plane')
 
 
