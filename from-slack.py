@@ -10,8 +10,19 @@ app = flask.Flask(__name__)
 def index():
     data = request.data.decode('utf-8')
     data = json.loads(data)
-    token = str(data['challenge'])
-    return Response(token, mimetype='text/plane')
+    # for challenge of slack api
+    if 'challenge' in data:
+        token = str(data['challenge'])
+        return Response(token, mimetype='text/plane')
+    # for events which you added
+    if 'event' in data:
+        print("get event")
+        event = data['event']
+        if 'user' in event:
+            print("user = ", event["user"])
+        if "text" in event:
+            print("text = ", event["text"])
+    return Response("nothing", mimetype='text/plane')
 
 
 @app.route('/get')
