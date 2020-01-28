@@ -10,7 +10,7 @@ class SlackDriver:
     def send_message(self, message, channel):
         params = {"token": self._token, "channel": channel, "text": message}
 
-        r = requests.get('https://slack.com/api/chat.postMessage',
+        r = requests.post('https://slack.com/api/chat.postMessage',
                           headers=self._headers,
                           params=params)
         print("return ", r.json())
