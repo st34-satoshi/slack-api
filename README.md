@@ -5,7 +5,7 @@
 # slack apiをpythonでたたく
 
 ## Requirement
-set your **token** in main.py.  
+set your **token** in to-slack.py.  
 参考 [Slack API 推奨Tokenについて](https://qiita.com/ykhirao/items/3b19ee6a1458cfb4ba21)
 
 ## Usage
