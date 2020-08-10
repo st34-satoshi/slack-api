@@ -2,7 +2,6 @@
 - slack apiをpythonでたたく
 - slackからのメッセージを受信する([Events app][events-app])
 
-<hr>
 # slack apiをpythonでたたく
 
 ## Requirement
@@ -12,7 +11,6 @@ set your **token** in main.py.
 ## Usage
 `python3 to-slack.py`
 
-<hr>
 # slackからメッセージを受信する
 使い方などは参照
 ## Requirement
