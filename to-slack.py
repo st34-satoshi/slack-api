@@ -15,6 +15,16 @@ class SlackDriver:
                           params=params)
         print("return ", r.json())
 
+    def send_image(self, file_path, message, channel):
+        files = {'file': open(file_path, 'rb')}
+        params = {"token": self._token, 'channels': channel, 'initial_comment': message}
+        # headers = {'Content-Type': 'multipart/form-data'}  # invalid_form_data if you use headers
+
+        r = requests.post('https://slack.com/api/files.upload',
+                          params=params,
+                          files=files)
+        print("return ", r.json())
+
     def get_channel_history(self, channel):
         # you need to use 'OAuth Access Token' not 'Bot User OAuth Access Token'
         # channel should be 'id' not 'name'
@@ -31,4 +41,5 @@ if __name__ == '__main__':
     token = ''  # TODO your token.
     slack = SlackDriver(token)
     slack.send_message("Hello World! from python", "#random")
-    slack.get_channel_history("xxxxx")  # channel should be ID not name
+    # slack.send_image("image.png", "This is the comment of the image", "#random")
+    # slack.get_channel_history("xxxxx")  # channel should be ID not name
