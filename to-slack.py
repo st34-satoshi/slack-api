@@ -7,13 +7,18 @@ class SlackDriver:
         self._token = _token  # api_token
         self._headers = {'Content-Type': 'application/json'}
 
-    def send_message(self, message, channel):
-        params = {"token": self._token, "channel": channel, "text": message}
+    def send_message(self, message, channel, thread_ts=None):
+        if thread_ts is None:
+            params = {"token": self._token, "channel": channel, "text": message}
+        else:
+            params = {"token": self._token, "channel": channel, "text": message, "thread_ts": thread_ts}
 
         r = requests.post('https://slack.com/api/chat.postMessage',
                           headers=self._headers,
                           params=params)
         print("return ", r.json())
+        ts = r.json()['ts']  # get thread id of sent message
+        print(ts)
 
     def send_image(self, file_path, message, channel):
         files = {'file': open(file_path, 'rb')}
