@@ -1,18 +1,22 @@
 # slack-api
-- slack apiをpythonでたたく
-- slackからのメッセージを受信する([Events app][events-app])
+- Slack API using python
+    - send messages to slack
+    - receive messages from slack ([Events app][events-app])
 
-# slack apiをpythonでたたく
+# send messages to slack
 
 ## Requirement
 set your **token** in to-slack.py.  
-参考 [Slack API 推奨Tokenについて](https://qiita.com/ykhirao/items/3b19ee6a1458cfb4ba21)
+ref: [Slack API 推奨Tokenについて](https://qiita.com/ykhirao/items/3b19ee6a1458cfb4ba21)
+
+get your token from [https://api.slack.com/apps](https://api.slack.com/apps)
+OAuth & Permissions -> Bot User OAuth Token
+
 
 ## Usage
 `python3 to-slack.py`
 
-# slackからメッセージを受信する
-使い方などは参照
+# receive messages from slack
 ## Requirement
 `pip install -r requirements.txt`
 
